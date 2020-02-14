@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <!-- uc强制横屏 --><meta name="screen-orientation" content="landscape"><!-- QQ强制横屏 --><meta name="x5-orientation" content="landscape"><!-- UC强制全屏 --><meta name="full-screen" content="yes"><!-- QQ强制全屏 --><meta name="x5-fullscreen" content="true"><!-- UC应用模式 --><meta name="browsermode" content="application"><!-- QQ应用模式 --><meta name="x5-page-mode" content="app"><!-- windows phone 点击无高光 --><meta name="msapplication-tap-highlight" content="no"><!-- 适应移动端end -->
+    <title>你画我猜——网页版</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/rangeslider.css">
+    <link rel="stylesheet" href="css/toast.css">
+</head>
+
+<body>
+    <div id="minder" class="toast"></div>
+    <div class="container">
+        <div class="left">
+            <div id="list-area">
+                <div class="list-title">
+                    <h3>房间列表</h3>
+                </div>
+                <div id="group_list">
+
+                </div>
+                <button onclick="createGroup();">创建房间</button>
+            </div>
+
+            <div id="room-area" style="display: none;">
+                <div class="tool-area" id="tool_area">
+                    <div id="room-name" class="tool-title"></div>
+                    <div class="user-list">
+                        <div id="user_list"></div>
+                    </div>
+                    <div id="color-tool" class="inline-input-area">
+                        <div>画笔颜色</div>
+                        <div id="color-area"></div>
+                        <input id="line-color" readonly="true" style="background: #000000;">
+                    </div>
+                    <div id="width-tool" class="inline-input-area">
+                        <div>画笔粗细</div>
+                        <div style="display: block;width: 120px;margin-top: 12px;"><input id="line-width" type="range" min="1" max="100" value="1" step="1"  data-rangeslider></div>
+                    </div>
+                </div>
+                <div class="draw-area">
+                    <canvas style="border: 1px solid black;" id="draw-canvas"></canvas>
+                    <div class="draw-tool-area">
+                        <button id="clear-button" onclick="clearCanvas();">清除画板</button>
+                        <button id="change-button" style="display: none;" onclick="toChangeQuestion();">换个题目</button>
+                        <button id="ready-button" onclick="toReady();">准备</button>
+                        <button id="back-button" onclick="toBackList();">返回大厅</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="inline-input-area">
+                <input type="text" onkeypress="if(event.keyCode==13)setName();" id="name" />
+                <button onclick="setName();">设置昵称</button>
+            </div>
+            <div id="rs"></div>
+            <div class="inline-input-area">
+                <input type="text" onkeypress="if(event.keyCode==13)sendMessage();" id="msg" />
+                <button onclick="sendMessage();">发送</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/rangeslider.js"></script>
+    <script>
+        // 初始化画笔粗细slider
+        $('input[type="range"]').rangeslider({
+            // Deactivate the feature detection
+            polyfill: false,
+        });
+    </script>
+    <script src="js/dialog.js"></script>
+    <script src="js/jhcolor.js"></script>
+    <script src="js/drawpan.js?v=2"></script>
+    <script src="js/main.js?v=7"></script>
+    <script src="js/ws.js?v=2"></script>
+</body>
+
+</html>

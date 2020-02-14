@@ -1,0 +1,48 @@
+.toast{
+    position: absolute;
+    margin: 0 0;
+    width: 200px;
+    height: 24px;
+    text-align: center;
+    top: -44px;
+    left: calc(50% - 100px);
+    border: 1px solid #000;
+    box-shadow: rgba(0, 0, 0, 0.05) 2px 2px;
+    background: #eaeaea;
+}
+
+.toast-show{
+    animation: toastShow 1s;
+    /* Safari 和 Chrome: */
+    -webkit-animation: toastShow 1s;
+    top: 4px;
+}
+
+.toast-hide{
+    animation: toastHide 1s;
+    /* Safari 和 Chrome: */
+    -webkit-animation: toastHide 1s;
+    top: -44px;
+}
+
+@keyframes toastShow
+{
+    from {top: -44px;}
+    to {top: 4px;}
+}
+@-webkit-keyframes toastShow /* Safari 和 Chrome */
+{
+    from {top: -44px;}
+    to {top: 4px;}
+}
+
+@keyframes toastHide
+{
+    from {top: 4px;}
+    to {top: -44px;}
+}
+@-webkit-keyframes toastHide /* Safari 和 Chrome */
+{
+    from {top: 4px;}
+    to {top: -44px;}
+}
